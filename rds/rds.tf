@@ -1,5 +1,5 @@
 
-#creating subnet group for 
+#creating subnet group for rds db
 
 resource "aws_db_subnet_group" "db_subnet_group" {
     name = "${var.tags["project"]}-${var.tags["application"]}-${var.tags["environment"]}-db_subnet_group"
@@ -44,7 +44,7 @@ resource "aws_security_group" "rds_sg" {
 
 resource "aws_db_instance" "rds" {
   allocated_storage    = 10
-  db_name              =  "jj-tech-database"
+  db_name              = "jj-tech-database"
   engine               = "mysql"
   engine_version       = "5.7"
   instance_class       = "db.t3.micro"
